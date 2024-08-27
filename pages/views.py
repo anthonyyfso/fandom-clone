@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http.response import HttpResponseRedirect
 
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import PagesForm
@@ -28,4 +28,10 @@ class PagesListView(LoginRequiredMixin, ListView):
 def page_detail(request, slug):
     page = get_object_or_404(Pages, slug=slug)
     return render(request, 'pages/pages_detail.html', {'page': page})
+
+class PagesUpdateView (LoginRequiredMixin, UpdateView):
+    model = Pages
+    success_url = '/pages'
+    form_class = PagesForm
+    template_name = 'pages/pages_create.html'
 
