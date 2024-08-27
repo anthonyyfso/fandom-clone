@@ -5,7 +5,7 @@ from django.utils.text import slugify
 class Pages(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
-    text = models.CharField(max_length=100000, default='Default content')
+    text = models.TextField(default='')
 
     def save(self, *args, **kwargs):
         if not self.slug:

@@ -19,7 +19,9 @@
         <a href="{% url 'homepage' %}" class="btn btn-outline-light me-1"
           >Home</a
         >
-        <a href="" class="btn btn-outline-light me-1">Create</a>
+        <a href="{% url 'pages.create' %}" class="btn btn-outline-light me-1"
+          >Create</a
+        >
         <a href="" class="btn btn-outline-light me-1">Logout</a>
         {% else %}
         <a href="" class="btn btn-outline-light me-1">Login</a>

@@ -10,8 +10,9 @@ from .models import Pages
 
 class PagesCreateView(LoginRequiredMixin, CreateView):
     model = Pages
-    success_url = ''
+    success_url = '/pages'
     form_class = PagesForm
+    template_name = 'pages/pages_create.html'
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -26,5 +27,5 @@ class PagesListView(LoginRequiredMixin, ListView):
 
 def page_detail(request, slug):
     page = get_object_or_404(Pages, slug=slug)
-    return render(request, 'pages/page_detail.html', {'page': page})
+    return render(request, 'pages/pages_detail.html', {'page': page})
 
