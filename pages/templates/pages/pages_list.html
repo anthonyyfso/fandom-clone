@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="row row-cols3 g-2">
+  {% for page in pages %}
+  <div class="col">
+    <div class="p-3 border">
+        <a
+        href="{% url 'pages.detail' slug=page.slug %}"
+        class="text-dark text-decoration-none"
+    >
+        {{ page.title }}
+    </a>
+        <h3>{{page.title}}</h3>
+      </a>
+      {{page.text|truncatechars:10}}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
