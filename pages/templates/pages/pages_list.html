@@ -1,5 +1,16 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="navbar">
+  <h1>Here are the Pages</h1>
+  <div class="search">
+    <form method="post" action="{% url 'pages.search' %}">
+      {% csrf_token %}
+      <input type="text" name="searched" placeholder="Search..." />
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+</div>
+
 <div class="row row-cols3 g-2">
   {% for page in pages %}
   <a

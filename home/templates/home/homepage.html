@@ -1,1 +1,4 @@
-{% extends 'base.html' %}{% block content %} {% endblock %}
+{% extends 'base.html' %}{% block content %}
+<h1>Welcome to the [Insert Site Name]</h1>
+<a href="{% url 'pages.list' %}">View Pages</a>
+{% endblock %}
