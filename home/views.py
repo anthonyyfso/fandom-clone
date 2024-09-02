@@ -12,7 +12,6 @@ from .forms import CustomUserCreationForm
 class HomeView(TemplateView):
     template_name = 'home/homepage.html'
 
-
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)

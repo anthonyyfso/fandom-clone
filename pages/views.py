@@ -48,8 +48,7 @@ class DetailsCreateView(LoginRequiredMixin, CreateView):
         self.object.user = self.request.user
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
-
-    
+  
 
 class PagesUpdateView (LoginRequiredMixin, UpdateView):
     model = Pages

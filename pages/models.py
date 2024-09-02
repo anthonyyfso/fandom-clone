@@ -13,8 +13,8 @@ class Pages(models.Model):
         super().save(*args, **kwargs)
         
 class Details(models.Model):
-    page = models.ForeignKey(Pages, null=True, blank=True, on_delete=models.CASCADE, related_name='details')
     title = models.CharField(max_length=255)
+    page = models.ForeignKey(Pages, null=True, blank=True, on_delete=models.CASCADE, related_name='details')
     subtitle = models.CharField(max_length=255)
     text = models.TextField(default='')
 
