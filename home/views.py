@@ -9,8 +9,11 @@ from django.urls import reverse
 from .forms import CustomUserCreationForm
 
 # Create your views here.
-class HomeView(TemplateView):
-    template_name = 'home/homepage.html'
+""" class HomeView(TemplateView):
+    template_name = 'home/homepage.html' """
+
+def home_view(request):
+    return render (request, 'home/homepage.html')
 
 def register_view(request):
     if request.method == 'POST':

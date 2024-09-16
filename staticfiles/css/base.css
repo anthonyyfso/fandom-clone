@@ -1,0 +1,16 @@
+body {
+  color: white;
+}
+
+.containerwrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.containerwrap__margin {
+  margin-right: 3rem;
+}
+.containerwrap__margin--box {
+  border: 1px solid black;
+  width: 30rem;
+  box-sizing: border-box;
+}/*# sourceMappingURL=base.css.map */

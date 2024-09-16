@@ -1,24 +1,31 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="navbar">
-  <h1>Here are the Pages</h1>
-  <div class="search">
-    <form method="post" action="{% url 'pages.search' %}">
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <h1>Here are the Pages</h1>
+
+    <form class="d-flex" method="post" action="{% url 'pages.search' %}">
       {% csrf_token %}
-      <input type="text" name="searched" placeholder="Search..." />
-      <button type="submit" class="btn btn-primary">Search</button>
+      <input
+        class="form-control me-2"
+        type="search"
+        name="searched"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
-</div>
+</nav>
 
-<div class="row row-cols3 g-2">
+<div class="containerwrap">
   {% for page in pages %}
   <a
     href="{% url 'pages.detail' slug=page.slug %}"
     class="text-dark text-decoration-none"
   >
-    <div class="col">
-      <div class="p-3 border">
+    <div class="containerwrap__margin">
+      <div class="containerwrap__margin--box">
         <h3>{{page.title}}</h3>
       </div>
     </div>

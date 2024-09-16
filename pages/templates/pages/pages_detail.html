@@ -1,15 +1,33 @@
 {% extends "base.html" %} {% block content %}
+<div class="pagecontainer">
+  <div class="linebreak">
+    <h1 class="heading">{{ page.title }}</h1>
+  </div>
+  <div class="edits">
+    <p>{{ page.text }}</p>
+    <div class="edits__container">
+      <a href="{% url 'pages.edit' page_slug=page.slug %}">
+        <button class="edits__container--btn">Edit</button>
+      </a>
+      <a
+        href="{% url 'details.create' page_slug=page.slug %}?title={{ page.title|urlencode }}"
+      >
+        <button class="edits__container--btn">Add a subheader</button>
+      </a>
+    </div>
+  </div>
 
-<div>
-  <h1>{{ page.title }}</h1>
-  <a href="{% url 'pages.edit' slug=page.slug %}">Edit</a>
-  <a href="{% url 'details.edit' slug=page.slug %}">Add a Subheader </a>
-  <p>{{ page.text }}</p>
+  {% for detail in details %}
+  <div class="subtitlebreak">
+    <h2>{{ detail.subtitle }}</h2>
+  </div>
+
+      <p>{{ detail.text }}</p>
+
+    {% empty %}
+      <p>No details available for this page.</p>
+    {% endfor %}
+  </div>
+
+  {% endblock %}
 </div>
-
-{% for detail in details %}
-<h2>{{ detail.subtitle }}</h2>
-<p>{{ detail.text }}</p>
-{% empty %}
-<p>No details available for this page.</p>
-{% endfor %} {% endblock %}

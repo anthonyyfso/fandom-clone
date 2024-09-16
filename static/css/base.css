@@ -1,0 +1,108 @@
+/* nav {
+    unicode-bidi: isolate;
+}
+
+.navbar1 {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    background-color: #212529;
+    color: white;
+    width: 100%;
+
+    &::after, ::before {
+        box-sizing: border-box;
+    }
+
+    &__btn{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+} */
+.linebreak {
+  border-bottom: 1px solid black;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.subtitlebreak {
+  border-top: 1px solid black;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.pagecontainer {
+  padding: 1rem;
+}
+
+.edits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.edits .edits__container {
+  display: flex;
+  align-items: center;
+}
+.edits .edits__container--btn {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.1s ease, color 0.3s ease;
+}
+.edits .edits__container--btn:hover {
+  background-color: #323232;
+  color: white;
+}
+.edits p {
+  margin: 0;
+}
+
+.heading {
+  color: black;
+  font-size: 3rem;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+}
+
+.underlinebr {
+  -webkit-text-decoration: underline black solid 1px;
+          text-decoration: underline black solid 1px;
+  width: 100%;
+}
+
+.containerwrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.containerwrap__margin {
+  margin-right: 3rem;
+}
+.containerwrap__margin--box {
+  border: 1px solid black;
+  width: 30rem;
+  box-sizing: border-box;
+}/*# sourceMappingURL=base.css.map */
