@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'fandom.wsgi.application'
+WSGI_APPLICATION = 'app.wsgi.application'
 
 
 # Database
