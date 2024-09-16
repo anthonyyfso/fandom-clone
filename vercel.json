@@ -8,6 +8,6 @@
   ],
   "env": {
     "DJANGO_SETTINGS_MODULE": "fandom.settings",
-    "DATABASE_URL": "mysql://username:password@hostname/dbname"
+    "DATABASE_URL": "mysql://anthony:anton123@127.0.0.1/newdb"
   }
 }
