@@ -1,15 +1,13 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "fandom/wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
   "routes": [
     {
       "src": "/(.*)",
       "dest": "fandom/wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "fandom.settings",
+    "DATABASE_URL": "mysql://anthony:anton123@127.0.0.1/newdb"
+  }
 }
