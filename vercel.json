@@ -1,11 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "fandom/wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
   "routes": [
     {
       "src": "/(.*)",
@@ -15,10 +9,5 @@
   "env": {
     "DJANGO_SETTINGS_MODULE": "fandom.settings",
     "DATABASE_URL": "mysql://username:password@hostname/dbname"
-  },
-  "functions": {
-    "fandom/wsgi.py": {
-      "maxDuration": 10
-    }
   }
 }
