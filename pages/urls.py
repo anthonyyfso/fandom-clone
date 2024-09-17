@@ -9,4 +9,3 @@ urlpatterns = [
     path('<slug:page_slug>/edit/', views.pages_update, name='pages.edit'),
     path('search', views.PageSearch, name='pages.search'),
     path('details/create/<slug:page_slug>/', views.details_create, name='details.create'),]
-
