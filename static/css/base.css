@@ -38,9 +38,25 @@
     }
 } */
 .linebreak {
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid black;
   margin: 1rem 0;
   width: 100%;
+}
+
+.casing {
+  border: 1px solid black;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center;
+}
+
+.anchor {
+  display: block;
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: right;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
 .subtitlebreak {
@@ -90,7 +106,7 @@
 
 .underlinebr {
   -webkit-text-decoration: underline black solid 1px;
-  text-decoration: underline black solid 1px;
+          text-decoration: underline black solid 1px;
   width: 100%;
 }
 
@@ -105,4 +121,4 @@
   border: 1px solid black;
   width: 30rem;
   box-sizing: border-box;
-} /*# sourceMappingURL=base.css.map */
+}/*# sourceMappingURL=base.css.map */

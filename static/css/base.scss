@@ -38,10 +38,29 @@
     }
 } */
 .linebreak {
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid black;
+    
     margin: 1rem 0;
     width: 100%;
 }
+
+.casing {
+    border: 1px solid black;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center; 
+}
+
+.anchor {
+    display: block;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: right;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+
 .subtitlebreak {
     border-top: 1px solid black;
     margin: 1rem 0;
@@ -53,33 +72,33 @@
 
 .edits {
     display: flex;
-    justify-content: space-between; // Distribute space between children
-    align-items: center; // Vertically center items
-    width: 100%; // Full width of the parent container
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%; 
   
     .edits__container {
       display: flex;
-      align-items: center; // Vertically center buttons
+      align-items: center; 
   
       &--btn {
         background-color: transparent;
-        border: 1px solid black; // Optional: border color
+        border: 1px solid black; 
         border-radius: 8px;
         padding: 0.5rem 1rem;
-        margin-right: 1rem; // Space between buttons
-        color: #007bff; // Button text color
-        cursor: pointer; // Pointer cursor on hover
-        transition: background-color 0.1s ease, color 0.3s ease; // Smooth transition
+        margin-right: 1rem; 
+        color: #007bff; 
+        cursor: pointer; 
+        transition: background-color 0.1s ease, color 0.3s ease;
   
         &:hover {
-          background-color: #323232; // Change background on hover
-          color: white; // Change text color on hover
+          background-color: #323232; 
+          color: white; 
         }
       }
     }
   
     p {
-      margin: 0; // Remove default margins from paragraph
+      margin: 0; 
     }
   }
   

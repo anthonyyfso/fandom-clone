@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-from .views import page_detail, PageSearch
 
 urlpatterns = [
     path('create/', views.pages_create, name='pages.create'),
@@ -8,4 +7,5 @@ urlpatterns = [
     path('', views.pages_list, name='pages.list'),
     path('<slug:page_slug>/edit/', views.pages_update, name='pages.edit'),
     path('search', views.PageSearch, name='pages.search'),
-    path('details/create/<slug:page_slug>/', views.details_create, name='details.create'),]
+    path('details/create/<slug:page_slug>/', views.details_create, name='details.create'),
+]

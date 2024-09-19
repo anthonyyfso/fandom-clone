@@ -2,27 +2,29 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse
 
-from django.views.generic import CreateView, ListView, UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 from .forms import PagesForm, DetailsForm
+
 from .models import Pages, Details
 # Create your views here.
 
-@login_required(login_url='/register')  
+@login_required(login_url='/register')
 def pages_create(request):
     if request.method == 'POST':
-        form = PagesForm(request.POST)
+        form = PagesForm(request.POST, request.FILES) 
+
         if form.is_valid():
             page = form.save(commit=False)
-            page.user = request.user
-            page.save()  
-            return redirect('/pages')
+            page.user = request.user 
+            page.save()
+
+            return redirect('/pages')  
     else:
         form = PagesForm()
+
     return render(request, 'pages/pages_create.html', {'form': form})
- 
+
 
 @login_required(login_url='/register')
 def pages_list(request):
@@ -57,10 +59,11 @@ def details_create(request, page_slug):
 def pages_update(request, page_slug):
     page = get_object_or_404(Pages, slug=page_slug)
     if request.method == 'POST':
-        form = PagesForm(request.POST, instance=page)
+        form = PagesForm(request.POST, request.FILES, instance=page) 
         if form.is_valid():
             form.save()
-            success_url = reverse('pages.list')
+            
+            success_url = reverse('pages.detail', kwargs={'slug': page_slug})
             return HttpResponseRedirect(success_url)
     else:
         form = PagesForm(instance=page)

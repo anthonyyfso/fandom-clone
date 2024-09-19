@@ -5,7 +5,7 @@ from . import models
 # Register your models here.
 
 class PagesAdmin(admin.ModelAdmin):
-    list_display = ('title', )
+    list_display = ('title', 'image')
 
 admin.site.register(models.Pages, PagesAdmin)
 

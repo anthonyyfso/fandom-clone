@@ -2,10 +2,11 @@ from django import forms
 
 from .models import Pages, Details
 
+
 class PagesForm(forms.ModelForm):
     class Meta:
         model = Pages
-        fields = ('title', 'text')
+        fields = ('title', 'text', 'image')
 
 class DetailsForm(forms.ModelForm):
     class Meta:

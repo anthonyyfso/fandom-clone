@@ -1,33 +1,50 @@
 {% extends "base.html" %} {% block content %}
 <div class="pagecontainer">
-  <div class="linebreak">
-    <h1 class="heading">{{ page.title }}</h1>
-  </div>
-  <div class="edits">
-    <p>{{ page.text }}</p>
-    <div class="edits__container">
-      <a href="{% url 'pages.edit' page_slug=page.slug %}">
-        <button class="edits__container--btn">Edit</button>
-      </a>
-      <a
-        href="{% url 'details.create' page_slug=page.slug %}?title={{ page.title|urlencode }}"
-      >
-        <button class="edits__container--btn">Add a subheader</button>
-      </a>
+  <div>
+    <div class="linebreak">
+      <h1 class="heading">{{ page.title }}</h1>
     </div>
+
+    <div class="casing">
+      <p>{{ page.text }}</p>
+    </div>
+    <a
+      class="anchor"
+      href="{% url 'pages.edit' page_slug=page.slug %}?title={{ page.title|urlencode }}"
+    >
+      Edit
+    </a>
   </div>
 
-  {% for detail in details %}
+  <div class="sidebar">
+    {% if page.image %}
+    <div class="sidebar__imagecontainer">
+      <img
+        class="sidebar__imagecontainer--image"
+        src="{{ page.image.url }}"
+        alt="{{ page.title }}"
+      />
+    </div>
+    {% else %}
+    <div class="sidebar__imagecontainer">
+      <img
+        class="sidebar__imagecontainer--image"
+        src="../../../media/page_images/empty.jpg"
+        alt="No image available"
+      />
+    </div>
+    {% endif %}
+    <p class="sidebar__title">{{ page.title }}</p>
+  </div>
+
+  {% for detail in page.details.all %}
   <div class="subtitlebreak">
     <h2>{{ detail.subtitle }}</h2>
   </div>
 
-      <p>{{ detail.text }}</p>
-
-    {% empty %}
-      <p>No details available for this page.</p>
-    {% endfor %}
-  </div>
-
-  {% endblock %}
+  <p>{{ detail.text }}</p>
+  {% empty %}
+  <p>No details available for this page.</p>
+  {% endfor %}
 </div>
+{% endblock %}
