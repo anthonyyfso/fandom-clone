@@ -1,8 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 
 <form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Save</button>
+  {% csrf_token %}
+  <div class="formcontainer">
+    <div class="formcontainer__slot">
+      <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+      {{ form.title }}
+    </div>
+
+    <div class="formcontainer__slot">
+      <label for="{{ form.subtitle.id_for_label }}"
+        >{{ form.subtitle.label }}</label
+      >
+      {{ form.subtitle }}
+    </div>
+
+    <div class="formcontainer__slot">
+      <label for="{{ form.text.id_for_label }}">{{ form.text.label }}</label>
+      {{ form.text }}
+    </div>
+
+    <button class="formcontainer__btn" type="submit">Save</button>
+  </div>
 </form>
 
 {% endblock %}

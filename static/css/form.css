@@ -1,0 +1,44 @@
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  margin-left: 33%;
+  margin-right: 33%;
+  height: 100%;
+}
+.formcontainer__slot {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.formcontainer__slot--label {
+  width: 50%;
+  margin-bottom: 3rem;
+}
+.formcontainer__slot--labeltext {
+  width: 50%;
+  margin-bottom: 3rem;
+}
+.formcontainer__btn {
+  width: 6rem;
+  margin-left: auto;
+}
+
+.userauthcontainer {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  margin-left: 25%;
+  margin-right: 25%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.userauthcontainer__slot {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+}
+.userauthcontainer__btn {
+  width: 6rem;
+}/*# sourceMappingURL=form.css.map */

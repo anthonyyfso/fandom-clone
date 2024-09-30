@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
+  <div class="navbar-container">
     <h1>Here are the Pages</h1>
 
     <form class="d-flex" method="post" action="{% url 'pages.search' %}">
@@ -25,9 +25,22 @@
     class="text-dark text-decoration-none"
   >
     <div class="containerwrap__margin">
-      <div class="containerwrap__margin--box">
-        <h3>{{page.title}}</h3>
-      </div>
+      {% if page.image %}
+      <div
+        class="containerwrap__card"
+        style="background-image: url('{{ page.image.url }}'); background-size: cover; background-position: center;"
+      ></div>
+      {% else %}
+      <div
+        class="containerwrap__card"
+        style="
+          background-image: url('../../../media/page_images/empty.jpg');
+          background-size: cover;
+          background-position: center;
+        "
+      ></div>
+      {% endif %}
+      <h3 class="containerwrap__title">{{ page.title }}</h3>
     </div>
   </a>
   {% endfor %}

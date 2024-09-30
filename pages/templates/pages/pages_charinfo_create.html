@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<form method="post" enctype="multipart/form-data">
+<form method="post">
   {% csrf_token %}
   <div class="formcontainer">
     <div class="formcontainer__slot">
@@ -9,13 +9,15 @@
     </div>
 
     <div class="formcontainer__slot">
-      <label for="{{ form.text.id_for_label }}">{{ form.text.label }}</label>
-      {{ form.text }}
+      <label for="{{ form.character_information.id_for_label }}"
+        >{{ form.character_information.label }}</label
+      >
+      {{ form.character_information }}
     </div>
 
     <div class="formcontainer__slot">
-      <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
-      {{ form.image }}
+      <label for="{{ form.text.id_for_label }}">{{ form.text.label }}</label>
+      {{ form.text }}
     </div>
 
     <button class="formcontainer__btn" type="submit">Save</button>

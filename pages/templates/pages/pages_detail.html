@@ -1,50 +1,78 @@
 {% extends "base.html" %} {% block content %}
 <div class="pagecontainer">
-  <div>
-    <div class="linebreak">
-      <h1 class="heading">{{ page.title }}</h1>
+  <div class="header">
+    <div class="header__linebreak">
+      <h1 class="header__linebreak--heading">{{ page.title }}</h1>
     </div>
 
-    <div class="casing">
+    <div class="header__textcase">
       <p>{{ page.text }}</p>
     </div>
     <a
-      class="anchor"
+      class="header__anchor"
       href="{% url 'pages.edit' page_slug=page.slug %}?title={{ page.title|urlencode }}"
     >
       Edit
     </a>
+    <a
+      class="header__anchor"
+      href="{% url 'details.create' page_slug=page.slug %}?title={{ page.title|urlencode }}"
+    >
+      Add Detail
+    </a>
+
+    <a
+      class="header__anchor"
+      href="{% url 'charinfo.create' page_slug=page.slug %}?title={{ page.title|urlencode }}"
+    >
+      Add character info
+    </a>
   </div>
 
-  <div class="sidebar">
-    {% if page.image %}
-    <div class="sidebar__imagecontainer">
-      <img
-        class="sidebar__imagecontainer--image"
-        src="{{ page.image.url }}"
-        alt="{{ page.title }}"
-      />
+  <div class="pagesplit">
+    <div class="sidebar">
+      {% if page.image %}
+      <div class="sidebar__imagecontainer">
+        <img
+          class="sidebar__imagecontainer--image"
+          src="{{ page.image.url }}"
+          alt="{{ page.title }}"
+        />
+      </div>
+      {% else %}
+      <div class="sidebar__imagecontainer">
+        <img
+          class="sidebar__imagecontainer--image"
+          src="../../../media/page_images/empty.jpg"
+          alt="No image available"
+        />
+      </div>
+      {% endif %}
+      <p class="sidebar__title">{{ page.title }}</p>
+
+      <div class="character-info-list">
+        {% for character_info in charinfo %}
+        <p>{{ character_info.character_information }}</p>
+        <ul>
+          {% for line in character_info.text.splitlines %}
+          <li>{{ line }}</li>
+          {% endfor %}
+        </ul>
+        {% endfor %}
+      </div>
     </div>
-    {% else %}
-    <div class="sidebar__imagecontainer">
-      <img
-        class="sidebar__imagecontainer--image"
-        src="../../../media/page_images/empty.jpg"
-        alt="No image available"
-      />
+
+    <div class="detailsplit">
+      {% for detail in page.details.all %}
+      <div class="subtitlebreak">
+        <h2>{{ detail.subtitle }}</h2>
+      </div>
+      {% for det in detail.text.splitlines %}
+      <p>{{ det }}</p>
+      {% endfor %} {% empty %}
+      <p>No details available for this page.</p>
+      {% endfor %}
     </div>
-    {% endif %}
-    <p class="sidebar__title">{{ page.title }}</p>
   </div>
-
-  {% for detail in page.details.all %}
-  <div class="subtitlebreak">
-    <h2>{{ detail.subtitle }}</h2>
-  </div>
-
-  <p>{{ detail.text }}</p>
-  {% empty %}
-  <p>No details available for this page.</p>
-  {% endfor %}
 </div>
 {% endblock %}

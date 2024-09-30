@@ -4,9 +4,9 @@ from django.urls import reverse
 
 from django.contrib.auth.decorators import login_required
 
-from .forms import PagesForm, DetailsForm
+from .forms import PagesForm, DetailsForm, CharacterInformationForm
 
-from .models import Pages, Details
+from .models import Pages, Details, CharacterInformation
 # Create your views here.
 
 @login_required(login_url='/register')
@@ -35,7 +35,8 @@ def pages_list(request):
 def page_detail(request, slug):
     page = get_object_or_404(Pages, slug=slug)
     details = Details.objects.filter(title=page.title) 
-    return render(request, 'pages/pages_detail.html', {'page': page, 'details': details})
+    charinfo = CharacterInformation.objects.filter(page=page)
+    return render(request, 'pages/pages_detail.html', {'page': page, 'details': details, 'charinfo': charinfo})
 
 def details_create(request, page_slug):
     if request.method == 'POST':
@@ -54,6 +55,24 @@ def details_create(request, page_slug):
         form = DetailsForm(initial={'title': title})
     
     return render(request, 'pages/pages_details_create.html', {'form': form}) 
+
+def character_information_create(request, page_slug):
+    if request.method == 'POST':
+        form = CharacterInformationForm(request.POST)
+        if form.is_valid():
+            charinfo = form.save(commit=False)
+            charinfo.user = request.user
+            page = get_object_or_404(Pages, slug=page_slug)
+            charinfo.page = page
+            charinfo.save()
+
+            success_url = reverse('pages.detail', kwargs={'slug': page_slug})
+            return HttpResponseRedirect(success_url)
+    else:
+        title = request.GET.get('title', '')
+        form = CharacterInformationForm(initial={'title': title})
+    
+    return render(request, 'pages/pages_charinfo_create.html', {'form': form}) 
 
 
 def pages_update(request, page_slug):

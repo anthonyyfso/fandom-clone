@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fandom</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  </head>
+  <body>
+    <div class="userauth">
+      <div class="userauth__container">
+        <a href="{% url 'login' %}" class="btn btn-outline-light me-1">Login</a>
+        <a href="{% url 'register' %}" class="btn btn-outline-light me-1"
+          >Signup</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

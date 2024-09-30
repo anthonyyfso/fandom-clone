@@ -1,0 +1,34 @@
+.footer {
+  background-color: #323232;
+  width: 100%;
+  margin-top: auto;
+}
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  border: black 1px solid;
+  height: 100%;
+}
+.footer__container--image {
+  height: 30px;
+  width: 100px;
+  margin-top: 1rem;
+  margin-left: 3rem;
+}
+.footer__infocontainer {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 3rem 0 3rem;
+  justify-content: space-between;
+}
+.footer__infocontainer--card {
+  display: flex;
+  flex-direction: column;
+}
+
+.temp {
+  color: white;
+  text-decoration: none;
+  list-style: none;
+  margin-bottom: 1rem;
+}/*# sourceMappingURL=footer.css.map */
